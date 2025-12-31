@@ -9,10 +9,7 @@ const Header = () => {
   const { content } = useSiteContent();
   const nav = content?.nav || t.nav;
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
-
+  const isActive = (path) => location.pathname === path;
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
@@ -35,9 +32,7 @@ const Header = () => {
             <Link
               to="/"
               className={`flex items-center gap-2 transition ${
-                isActive("/")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                isActive("/") ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
               }`}
             >
               <span className="text-lg">{nav.home}</span>
@@ -45,9 +40,7 @@ const Header = () => {
             <Link
               to="/about-us"
               className={`flex items-center gap-2 transition ${
-                isActive("/about-us")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                isActive("/about-us") ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
               }`}
             >
               <span className="text-lg">{nav.about}</span>
@@ -55,9 +48,7 @@ const Header = () => {
             <Link
               to="/services"
               className={`flex items-center gap-2 transition ${
-                isActive("/services")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                isActive("/services") ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
               }`}
             >
               <span className="text-lg">{nav.services}</span>
@@ -65,9 +56,7 @@ const Header = () => {
             <Link
               to="/blog"
               className={`flex items-center gap-2 transition ${
-                isActive("/blog")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                isActive("/blog") ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
               }`}
             >
               <span className="text-lg">{nav.blog}</span>
@@ -75,9 +64,7 @@ const Header = () => {
             <Link
               to="/admin"
               className={`flex items-center gap-2 transition ${
-                isActive("/admin")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                isActive("/admin") ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
               }`}
             >
               <span className="text-lg">{nav.admin}</span>
@@ -85,9 +72,7 @@ const Header = () => {
             <Link
               to="/contact"
               className={`flex items-center gap-2 transition ${
-                isActive("/contact")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                isActive("/contact") ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
               }`}
             >
               <span className="text-lg">{nav.contact}</span>
@@ -102,9 +87,7 @@ const Header = () => {
               aria-label="English"
               onClick={() => setLanguage("en")}
               className={`px-2 py-1 rounded text-sm ${
-                language === "en"
-                  ? "bg-[#1B3A5F] text-white"
-                  : "text-[#1A1D23] hover:bg-gray-100"
+                language === "en" ? "bg-[#1B3A5F] text-white" : "text-[#1A1D23] hover:bg-gray-100"
               }`}
             >
               EN
@@ -113,9 +96,7 @@ const Header = () => {
               aria-label="Arabic"
               onClick={() => setLanguage("ar")}
               className={`px-2 py-1 rounded text-sm ${
-                language === "ar"
-                  ? "bg-[#1B3A5F] text-white"
-                  : "text-[#1A1D23] hover:bg-gray-100"
+                language === "ar" ? "bg-[#1B3A5F] text-white" : "text-[#1A1D23] hover:bg-gray-100"
               }`}
             >
               ع
@@ -123,10 +104,9 @@ const Header = () => {
           </div>
 
           <button className="hidden sm:flex items-center gap-2 bg-[#1B3A5F] text-white/95 px-4 md:px-6 py-2 md:py-3 rounded-lg hover:bg-[#2D5280] transition">
-            <span className="whitespace-nowrap text-sm md:text-base font-semibold">
-              {t.hero.cta1}
-            </span>
+            <span className="whitespace-nowrap text-sm md:text-base font-semibold">{t.hero.cta1}</span>
           </button>
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden flex items-center justify-center w-10 h-10 text-[#1A1D23]"
@@ -143,76 +123,21 @@ const Header = () => {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[#E8ECF0] bg-white">
           <div className="flex flex-col px-4 py-4 gap-4">
-            <Link
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition ${
-                isActive("/")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
-              }`}
-            >
-              {nav.home}
-            </Link>
-            <Link
-              to="/about-us"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition ${
-                isActive("/about-us")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
-              }`}
-            >
-              {nav.about}
-            </Link>
-            <Link
-              to="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition ${
-                isActive("/services")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
-              }`}
-            >
-              {nav.services}
-            </Link>
-            <Link
-              to="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition ${
-                isActive("/blog")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
-              }`}
-            >
-              {nav.blog}
-            </Link>
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition ${
-                isActive("/admin")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
-              }`}
-            >
-              {nav.admin}
-            </Link>
-            <Link
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition ${
-                isActive("/contact")
-                  ? "text-[#1B3A5F] font-semibold"
-                  : "text-[#1A1D23] hover:text-[#1B3A5F]"
-              }`}
-            >
-              {nav.contact}
-            </Link>
+            {["/", "/about-us", "/services", "/blog", "/admin", "/contact"].map((path, idx) => (
+              <Link
+                key={idx}
+                to={path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-2 transition ${
+                  isActive(path) ? "text-[#1B3A5F] font-semibold" : "text-[#1A1D23] hover:text-[#1B3A5F]"
+                }`}
+              >
+                {nav[Object.keys(nav)[idx]]}
+              </Link>
+            ))}
+
             <button className="flex items-center justify-center gap-2 bg-[#1B3A5F] text-white/95 px-6 py-3 rounded-lg hover:bg-[#2D5280] transition mt-2">
-              <span className="whitespace-nowrap font-semibold">
-                {t.hero.cta1}
-              </span>
+              <span className="whitespace-nowrap font-semibold">{t.hero.cta1}</span>
             </button>
 
             {/* Mobile language selector */}
@@ -223,11 +148,7 @@ const Header = () => {
                   setLanguage("en");
                   setMobileMenuOpen(false);
                 }}
-                className={`px-3 py-2 rounded text-sm ${
-                  language === "en"
-                    ? "bg-[#1B3A5F] text-white"
-                    : "text-[#1A1D23] hover:bg-gray-100"
-                }`}
+                className={`px-3 py-2 rounded text-sm ${language === "en" ? "bg-[#1B3A5F] text-white" : "text-[#1A1D23] hover:bg-gray-100"}`}
               >
                 EN
               </button>
@@ -237,11 +158,7 @@ const Header = () => {
                   setLanguage("ar");
                   setMobileMenuOpen(false);
                 }}
-                className={`px-3 py-2 rounded text-sm ${
-                  language === "ar"
-                    ? "bg-[#1B3A5F] text-white"
-                    : "text-[#1A1D23] hover:bg-gray-100"
-                }`}
+                className={`px-3 py-2 rounded text-sm ${language === "ar" ? "bg-[#1B3A5F] text-white" : "text-[#1A1D23] hover:bg-gray-100"}`}
               >
                 ع
               </button>

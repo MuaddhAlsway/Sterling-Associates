@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Services = () => {
   return (
     <div className="flex flex-col w-full min-h-[800px]">
@@ -204,9 +205,13 @@ const Services = () => {
               Don't navigate legal challenges alone. Schedule your complimentary consultation today and discover how our experienced legal team can help protect your interests and achieve your objectives.
             </p>
             <div className="flex flex-col items-center gap-8">
-              <button className="hover:bg-[#E8C976] flex items-center gap-2 rounded-lg bg-[#D4A745] text-[#1A1D23] px-8 py-4 transition">
-                <span className="text-lg whitespace-nowrap font-semibold">Book Free Consultation</span>
-              </button>
+                <Link to="/book-consultation" className="w-full sm:w-auto">
+                <button className="hover:bg-[#E8C976] flex items-center justify-center gap-2 rounded-lg bg-[#D4A745] text-[#1A1D23] px-6 md:px-8 py-3 md:py-4 transition w-full sm:w-auto">
+                  <span className="text-base md:text-lg whitespace-nowrap font-semibold">
+                    Schedule Your Consultation
+                  </span>
+                </button>
+              </Link>
               <div className="flex items-center gap-8 text-white/85">
                 <div className="flex items-center gap-3">
                   <div className="bg-transparent flex justify-center items-center w-5 h-5">
