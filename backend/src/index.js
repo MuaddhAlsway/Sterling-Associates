@@ -26,6 +26,10 @@ const authRoutes = require("./routes/auth");
 const teamRoutes = require("./routes/team");
 const contentRoutes = require("./routes/content");
 const uploadRoutes = require("./routes/uploads");
+const blogRoutes = require("./routes/blogs");
+const contactRoutes = require("./routes/contacts");
+const consultationRoutes = require("./routes/consultations");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 app.use(cors());
@@ -38,8 +42,14 @@ app.use("/api/auth", authRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/uploads", uploadRoutes);
+app.use("/api/blogs", blogRoutes);
+app.use("/api/contacts", contactRoutes);
+app.use("/api/consultations", consultationRoutes);
 
 app.get("/", (req, res) => res.json({ ok: true, message: "Paraflow backend" }));
+
+// Global error handler
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 4000;
 const HOST = process.env.HOST || "0.0.0.0";

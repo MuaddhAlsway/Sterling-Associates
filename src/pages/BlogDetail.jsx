@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useBlogs } from "../context/BlogContext";
+import ConsultationCTA from "../components/ConsultationCTA";
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -40,9 +41,25 @@ export default function BlogDetail() {
           {article.content}
         </div>
       </div>
-      <Link to="/blog" className="text-[#1B3A5F]">
-        Back to Blog
-      </Link>
+
+      {/* CTA Section */}
+      <div className="mt-12 pt-12 border-t border-[#E8ECF0]">
+        <div className="bg-[#F8F9FB] rounded-2xl p-8 text-center">
+          <h3 className="text-2xl font-semibold text-[#1A1D23] mb-4">
+            Need Legal Assistance?
+          </h3>
+          <p className="text-lg text-[#4A5568] mb-6">
+            Get expert legal guidance tailored to your specific situation.
+          </p>
+          <ConsultationCTA />
+        </div>
+      </div>
+
+      <div className="mt-8">
+        <Link to="/blog" className="text-[#1B3A5F]">
+          Back to Blog
+        </Link>
+      </div>
     </div>
   );
 }

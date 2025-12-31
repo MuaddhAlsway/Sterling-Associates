@@ -28,29 +28,44 @@ export default function AdminTeam() {
     reader.readAsDataURL(file);
   };
 
-  const onAdd = (e) => {
+  const onAdd = async (e) => {
     e.preventDefault();
     if (!form.name || !form.title)
       return addToast(t?.admin?.nameRequired || "Name and title are required", {
         type: "error",
       });
-    addMember(form);
-    setForm({
-      name: "",
-      title: "",
-      specialty: "",
-      bio: "",
-      image: "",
-      career: "",
-    });
-    addToast(t?.admin?.memberAdded || "Team member added", {
-      type: "success",
-    });
+    
+    try {
+      const memberData = {
+        ...form,
+        imageUrl: form.image, // Map image to imageUrl for backend
+      };
+      await addMember(memberData);
+      setForm({
+        name: "",
+        title: "",
+        specialty: "",
+        bio: "",
+        image: "",
+        career: "",
+      });
+      addToast(t?.admin?.memberAdded || "Team member added", {
+        type: "success",
+      });
+    } catch (err) {
+      addToast("Failed to add member: " + err.message, {
+        type: "error",
+      });
+    }
   };
 
   const startEdit = (idx) => {
     setEditingIndex(idx);
-    setEditForm(members[idx]);
+    const member = members[idx];
+    setEditForm({
+      ...member,
+      image: member.image || member.imageUrl || "",
+    });
   };
   const onEditChange = (e) =>
     setEditForm({ ...editForm, [e.target.name]: e.target.value });
@@ -63,18 +78,36 @@ export default function AdminTeam() {
     reader.readAsDataURL(file);
   };
 
-  const saveEdit = (idx) => {
-    updateMember(idx, editForm);
-    setEditingIndex(null);
-    addToast(t?.admin?.memberUpdated || "Member updated", {
-      type: "success",
-    });
+  const saveEdit = async (idx) => {
+    try {
+      const member = members[idx];
+      const updateData = {
+        ...editForm,
+        imageUrl: editForm.image, // Map image to imageUrl for backend
+      };
+      await updateMember(idx, updateData);
+      setEditingIndex(null);
+      addToast(t?.admin?.memberUpdated || "Member updated", {
+        type: "success",
+      });
+    } catch (err) {
+      addToast("Failed to update member: " + err.message, {
+        type: "error",
+      });
+    }
   };
-  const onDelete = (idx) => {
-    deleteMember(idx);
-    addToast(t?.admin?.memberDeleted || "Member deleted", {
-      type: "success",
-    });
+
+  const onDelete = async (idx) => {
+    try {
+      await deleteMember(idx);
+      addToast(t?.admin?.memberDeleted || "Member deleted", {
+        type: "success",
+      });
+    } catch (err) {
+      addToast("Failed to delete member: " + err.message, {
+        type: "error",
+      });
+    }
   };
 
   return (
@@ -217,9 +250,12 @@ export default function AdminTeam() {
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded overflow-hidden bg-[#F8F9FB] flex-shrink-0">
                     <img
-                      src={m.image}
+                      src={m.image || m.imageUrl || ""}
                       alt={m.name}
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect fill='%23f0f0f0' width='64' height='64'/%3E%3Ctext x='50%25' y='50%25' font-size='12' fill='%23999' text-anchor='middle' dy='.3em'%3ENo Image%3C/text%3E%3C/svg%3E";
+                      }}
                     />
                   </div>
                   <div>

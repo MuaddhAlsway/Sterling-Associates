@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ContactForm from "./ContactForm";
+import ConsultationCTA from "../components/ConsultationCTA";
 import { useTranslation } from "../hooks/useTranslation";
 import { useSiteContent } from "../context/SiteContentContext";
 
@@ -184,9 +185,9 @@ const Contact = () => {
                     <p className="text-lg mb-6 text-white/85">
                       {t.cta.description}
                     </p>
-                    <button className="hover:bg-[#E8C976] flex items-center gap-2 font-semibold rounded-lg bg-[#D4A745] text-[#1A1D23] px-6 py-3 mx-auto transition">
-                      <span className="whitespace-nowrap">{t.cta.button}</span>
-                    </button>
+                    <div className="flex justify-center">
+                      <ConsultationCTA />
+                    </div>
                     <p className="text-sm mt-4 text-white/75">
                       What to expect: Case assessment, legal options, and
                       transparent fee discussion

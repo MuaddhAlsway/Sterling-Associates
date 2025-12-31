@@ -1,9 +1,11 @@
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function AdminSidebar() {
   const { logout } = useAuth();
   const loc = useLocation();
+  const [expandedMenu, setExpandedMenu] = useState(null);
 
   const menuItems = [
     {
@@ -13,16 +15,23 @@ export default function AdminSidebar() {
       to: "/admin",
     },
     {
-      id: "new",
-      label: "Add Blog",
-      icon: "lucide:file-plus",
-      to: "/admin/new",
-    },
-    {
-      id: "blogs",
-      label: "Manage Blogs",
+      id: "blog",
+      label: "Blog",
       icon: "lucide:book-open",
-      to: "/admin/blogs",
+      submenu: [
+        {
+          id: "new-blog",
+          label: "Add Blog",
+          icon: "lucide:file-plus",
+          to: "/admin/blogs/new",
+        },
+        {
+          id: "manage-blogs",
+          label: "Manage Blogs",
+          icon: "lucide:list",
+          to: "/admin/blogs",
+        },
+      ],
     },
     {
       id: "team",
@@ -60,23 +69,87 @@ export default function AdminSidebar() {
           {menuItems.map((item) => {
             const active =
               loc.pathname === item.to ||
-              loc.pathname.startsWith(item.to + "/");
+              (item.to && loc.pathname.startsWith(item.to + "/"));
+            const hasSubmenu = item.submenu && item.submenu.length > 0;
+            const isExpanded = expandedMenu === item.id;
+            const submenuActive = item.submenu?.some(
+              (sub) =>
+                loc.pathname === sub.to || loc.pathname.startsWith(sub.to + "/")
+            );
+
             return (
-              <Link
-                key={item.id}
-                to={item.to}
-                className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg transition ${
-                  active
-                    ? "bg-[#1B3A5F] text-white/95"
-                    : "text-[#4A5568] hover:bg-[#F8F9FB]"
-                }`}
-              >
-                <iconify-icon
-                  icon={item.icon}
-                  className="text-lg"
-                ></iconify-icon>
-                <span className="font-semibold">{item.label}</span>
-              </Link>
+              <div key={item.id}>
+                {hasSubmenu ? (
+                  <button
+                    onClick={() =>
+                      setExpandedMenu(isExpanded ? null : item.id)
+                    }
+                    className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg transition ${
+                      submenuActive || isExpanded
+                        ? "bg-[#1B3A5F] text-white/95"
+                        : "text-[#4A5568] hover:bg-[#F8F9FB]"
+                    }`}
+                  >
+                    <iconify-icon
+                      icon={item.icon}
+                      className="text-lg"
+                    ></iconify-icon>
+                    <span className="font-semibold flex-1 text-left">
+                      {item.label}
+                    </span>
+                    <iconify-icon
+                      icon={
+                        isExpanded
+                          ? "lucide:chevron-down"
+                          : "lucide:chevron-right"
+                      }
+                      className="text-lg"
+                    ></iconify-icon>
+                  </button>
+                ) : (
+                  <Link
+                    to={item.to}
+                    className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg transition ${
+                      active
+                        ? "bg-[#1B3A5F] text-white/95"
+                        : "text-[#4A5568] hover:bg-[#F8F9FB]"
+                    }`}
+                  >
+                    <iconify-icon
+                      icon={item.icon}
+                      className="text-lg"
+                    ></iconify-icon>
+                    <span className="font-semibold">{item.label}</span>
+                  </Link>
+                )}
+
+                {hasSubmenu && isExpanded && (
+                  <div className="ml-4 mt-2 flex flex-col gap-1 border-l-2 border-[#E8ECF0] pl-2">
+                    {item.submenu.map((subitem) => {
+                      const subActive =
+                        loc.pathname === subitem.to ||
+                        loc.pathname.startsWith(subitem.to + "/");
+                      return (
+                        <Link
+                          key={subitem.id}
+                          to={subitem.to}
+                          className={`flex items-center gap-3 px-4 py-2 rounded-lg transition text-sm ${
+                            subActive
+                              ? "bg-[#1B3A5F]/10 text-[#1B3A5F] font-semibold"
+                              : "text-[#4A5568] hover:bg-[#F8F9FB]"
+                          }`}
+                        >
+                          <iconify-icon
+                            icon={subitem.icon}
+                            className="text-base"
+                          ></iconify-icon>
+                          <span>{subitem.label}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>

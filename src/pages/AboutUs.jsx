@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "../hooks/useTranslation";
 import { useSiteContent } from "../context/SiteContentContext";
+import ConsultationCTA from "../components/ConsultationCTA";
 
 const AboutUs = () => {
   const { t } = useTranslation();
@@ -272,11 +273,7 @@ const AboutUs = () => {
               {t.about.ctaDescription}
             </p>
             <div className="flex flex-col items-center gap-8">
-              <button className="hover:bg-[#E8C976] flex items-center gap-2 rounded-lg bg-[#D4A745] text-[#1A1D23] px-8 py-4 transition">
-                <span className="text-lg whitespace-nowrap font-semibold">
-                  {t.about.ctaButton}
-                </span>
-              </button>
+              <ConsultationCTA />
               <div className="flex items-center gap-8 text-white/85">
                 <div className="flex items-center gap-3">
                   <div className="bg-transparent flex justify-center items-center w-5 h-5">

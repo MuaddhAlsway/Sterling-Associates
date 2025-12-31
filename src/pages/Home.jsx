@@ -187,7 +187,7 @@ const Home = () => {
                       25+
                     </div>
                     <div className="text-xs md:text-sm text-[#4A5568]">
-                      Years Experience
+                      {t.about.stats.experience}
                     </div>
                   </div>
                   <div className="text-center">
@@ -195,7 +195,7 @@ const Home = () => {
                       500+
                     </div>
                     <div className="text-xs md:text-sm text-[#4A5568]">
-                      Cases Won
+                      {t.about.stats.cases}
                     </div>
                   </div>
                   <div className="text-center">
@@ -203,7 +203,7 @@ const Home = () => {
                       98%
                     </div>
                     <div className="text-xs md:text-sm text-[#4A5568]">
-                      Client Satisfaction
+                      {t.about.stats.satisfaction}
                     </div>
                   </div>
                 </div>
@@ -333,22 +333,19 @@ const Home = () => {
                         className="text-sm"
                       ></iconify-icon>
                     </div>
-                    <span>December 5, 2025</span>
+                    <span>{t.blog.articles[2].date}</span>
                   </div>
                   <div className="flex flex-col gap-3">
                     <h3 className="text-xl font-semibold text-[#1A1D23]">
-                      Real Estate Market Trends and Legal Considerations for
-                      2025
+                      {t.blog.articles[2].title}
                     </h3>
                     <p className="text-base font-normal text-[#4A5568]">
-                      The real estate market continues to evolve. Stay ahead of
-                      legal requirements and market trends that could affect
-                      your property investments and transactions.
+                      {t.blog.articles[2].excerpt}
                     </p>
                   </div>
                   <button className="hover:text-[#2D5280] flex items-center gap-2 self-start text-[#1B3A5F] transition">
                     <span className="whitespace-nowrap font-semibold">
-                      Read More
+                      {t.blog.readmore}
                     </span>
                     <div className="bg-transparent flex justify-center items-center w-4 h-4">
                       <iconify-icon
@@ -364,7 +361,7 @@ const Home = () => {
               <Link to="/blog">
                 <button className="hover:bg-[#1B3A5F]/5 flex items-center gap-2 border-2 border-[#1B3A5F] rounded-lg text-[#1B3A5F] px-6 py-3 mx-auto transition">
                   <span className="whitespace-nowrap font-semibold">
-                    View All Articles
+                    {t.blog.viewall}
                   </span>
                 </button>
               </Link>
@@ -376,21 +373,19 @@ const Home = () => {
         <section className="w-full pt-12 md:pt-24 pb-12 md:pb-24 bg-[#1B3A5F]">
           <div className="text-center max-w-4xl mx-auto px-4 sm:px-6 md:px-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6 font-semibold text-white/95">
-              Ready to Discuss Your Legal Needs?
+              {t.cta.title}
             </h2>
             <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 text-white/85">
-              Get expert legal advice tailored to your situation. Schedule your
-              complimentary consultation today and take the first step toward
-              resolving your legal matters.
+              {t.cta.description}
             </p>
             <div className="flex flex-col items-center gap-6 md:gap-8">
               <Link to="/book-consultation" className="w-full sm:w-auto">
-  <button className="hover:bg-[#E8C976] flex items-center justify-center gap-2 rounded-lg bg-[#D4A745] text-[#1A1D23] px-6 md:px-8 py-3 md:py-4 transition w-full sm:w-auto">
-    <span className="text-base md:text-lg whitespace-nowrap font-semibold">
-      Schedule Your Consultation
-    </span>
-  </button>
-</Link>
+                <button className="hover:bg-[#E8C976] flex items-center justify-center gap-2 rounded-lg bg-[#D4A745] text-[#1A1D23] px-6 md:px-8 py-3 md:py-4 transition w-full sm:w-auto">
+                  <span className="text-base md:text-lg whitespace-nowrap font-semibold">
+                    {t.cta.button}
+                  </span>
+                </button>
+              </Link>
               <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-8 text-white/85">
                 <div className="flex items-center gap-3">
                   <div className="bg-transparent flex justify-center items-center w-5 h-5">
@@ -399,7 +394,7 @@ const Home = () => {
                       className="text-base md:text-lg"
                     ></iconify-icon>
                   </div>
-                  <span className="text-base md:text-lg">(555) 123-4567</span>
+                  <span className="text-base md:text-lg">{t.cta.phone}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="bg-transparent flex justify-center items-center w-5 h-5">
@@ -409,7 +404,7 @@ const Home = () => {
                     ></iconify-icon>
                   </div>
                   <span className="text-base md:text-lg">
-                    contact@sterling-law.com
+                    {t.cta.email}
                   </span>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "../hooks/useTranslation";
 import { useTeam } from "../context/TeamContext";
+import ConsultationCTA from "../components/ConsultationCTA";
 import asianWomen from "../assests/asianwomen.avif";
 
 const slugify = (s) =>
@@ -63,6 +64,30 @@ export default function MemberDetail() {
           <Link to="/team" className="text-[#1B3A5F]">
             {t.member?.backToTeam || "Back to Team"}
           </Link>
+        </div>
+      </div>
+
+      {/* Consultation CTA Section */}
+      <div className="mt-16 p-8 rounded-2xl bg-[#1B3A5F]">
+        <div className="text-center">
+          <div className="flex justify-center items-center w-16 h-16 mb-6 mx-auto rounded-full bg-[#D4A745]">
+            <iconify-icon
+              icon="lucide:calendar-check"
+              className="text-2xl text-[#1A1D23]"
+            ></iconify-icon>
+          </div>
+          <h3 className="text-2xl mb-4 font-semibold text-white/95">
+            Ready to Discuss Your Case?
+          </h3>
+          <p className="text-lg mb-6 text-white/85">
+            Schedule a consultation with our team to explore your legal options.
+          </p>
+          <div className="flex justify-center">
+            <ConsultationCTA />
+          </div>
+          <p className="text-sm mt-4 text-white/75">
+            What to expect: Case assessment, legal options, and transparent fee discussion
+          </p>
         </div>
       </div>
     </div>

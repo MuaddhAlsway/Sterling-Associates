@@ -21,22 +21,27 @@ export default function ContactForm() {
     setForm((s) => ({ ...s, [name]: type === "checkbox" ? checked : value }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message)
       return addToast("Name, email and message are required", {
         type: "error",
       });
-    addContact(form);
-    setForm({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-      agree: false,
-    });
-    addToast("Message sent — we'll be in touch", { type: "success" });
+    
+    try {
+      await addContact(form);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+        agree: false,
+      });
+      addToast("Message sent — we'll be in touch", { type: "success" });
+    } catch (err) {
+      addToast("Failed to send message: " + err.message, { type: "error" });
+    }
   };
 
   return (

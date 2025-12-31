@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Scale, ChevronRight, Calendar, Clock, User, Mail, Phone, MessageSquare, CheckCircle } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { consultationAPI } from '../services/api';
+
 export default function BookConsultation() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -14,6 +16,8 @@ export default function BookConsultation() {
     message: '',
     consent: false
   });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -23,15 +27,36 @@ export default function BookConsultation() {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || 
         !formData.practiceArea || !formData.preferredDate || !formData.preferredTime || 
         !formData.message || !formData.consent) {
       alert('Please fill in all required fields');
       return;
     }
-    console.log('Form submitted:', formData);
-    alert('Thank you for your consultation request. We will contact you within 24 hours.');
+    
+    try {
+      setLoading(true);
+      await consultationAPI.create(formData);
+      setSubmitted(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        practiceArea: '',
+        preferredDate: '',
+        preferredTime: '',
+        message: '',
+        consent: false
+      });
+      alert('Thank you for your consultation request. We will contact you within 24 hours.');
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      alert('Failed to submit consultation request: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
