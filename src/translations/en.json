@@ -1,0 +1,204 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "header": {
+    "title": "Sterling & Associates"
+  },
+  "hero": {
+    "title": "Trusted Legal Excellence You Can Count On",
+    "subtitle": "With over 25 years of combined experience, we provide comprehensive legal solutions tailored to your unique needs across corporate, family, and property law.",
+    "cta1": "Book Free Consultation",
+    "cta2": "Explore Services"
+  },
+  "services": {
+    "title": "Our Practice Areas",
+    "description": "We offer comprehensive legal services across multiple practice areas, providing expert guidance and representation for individuals and businesses.",
+    "corporate": {
+      "title": "Corporate Law",
+      "description": "Expert guidance for businesses of all sizes, from startups to established corporations. We handle contracts, mergers, compliance, and strategic legal planning.",
+      "link": "Learn More"
+    },
+    "family": {
+      "title": "Family Law",
+      "description": "Compassionate legal support for divorce, child custody, adoption, and other family matters. We prioritize your family's best interests with sensitivity.",
+      "link": "Learn More"
+    },
+    "realestate": {
+      "title": "Real Estate Law",
+      "description": "Complete real estate legal services including property transactions, commercial leases, zoning issues, and property disputes for buyers and sellers.",
+      "link": "Learn More"
+    },
+    "ip": {
+      "title": "Intellectual Property",
+      "description": "Protect your innovations and creative works with our comprehensive IP services including patents, trademarks, copyrights, and licensing agreements.",
+      "link": "Learn More"
+    }
+  },
+  "about": {
+    "title": "Why Choose Our Firm",
+    "pageTitle": "About Our Firm",
+    "description": "Sterling & Associates combines decades of legal expertise with a client-first approach. We believe in building lasting relationships through transparent communication, strategic thinking, and unwavering dedication to achieving the best outcomes for our clients.",
+    "ctaTitle": "Ready to Work With Us?",
+    "ctaDescription": "Experience the difference that dedicated legal expertise can make. Schedule your complimentary consultation today and discover how our experienced team can help you achieve your legal objectives.",
+    "ctaButton": "Schedule Consultation",
+    "stats": {
+      "experience": "Years Experience",
+      "cases": "Cases Won",
+      "satisfaction": "Client Satisfaction"
+    },
+    "button": "Meet Our Team"
+  },
+  "blog": {
+    "title": "Latest Legal Insights",
+    "description": "Stay informed with our expert analysis of current legal developments and practical advice for navigating complex legal matters.",
+    "readmore": "Read More",
+    "viewall": "View All Articles",
+    "articles": [
+      {
+        "id": 1,
+        "date": "December 15, 2025",
+        "title": "New Corporate Governance Regulations: What Your Business Needs to Know",
+        "excerpt": "The latest updates to corporate governance requirements could significantly impact your business operations.",
+        "category": "Corporate Law",
+        "readingTime": 8,
+        "author": "Sarah Mitchell",
+        "authorTitle": "Senior Partner",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop",
+        "content": "Corporate governance has always been a critical aspect of business operations, but recent regulatory changes have made it more important than ever. In this comprehensive guide, we'll explore the new regulations and what they mean for your organization.\n\nUnderstanding the New Framework\nThe updated corporate governance regulations introduce several key changes that affect how companies operate at the board level. These changes are designed to enhance transparency, accountability, and stakeholder protection. Companies of all sizes need to understand these requirements to ensure compliance and avoid potential penalties.\n\nKey Changes to Be Aware Of\n1. Enhanced Board Diversity Requirements: Companies must now demonstrate efforts to achieve greater diversity in board composition, including gender, ethnicity, and professional background diversity.\n\n2. Stakeholder Engagement: The new regulations require more frequent and meaningful engagement with stakeholders, including employees, customers, and community members.\n\n3. Executive Compensation Disclosure: There are stricter requirements for disclosing executive compensation packages and the rationale behind compensation decisions.\n\n4. Risk Management Oversight: Boards must establish more robust risk management frameworks and provide regular reporting on identified risks.\n\nImplementation Timeline\nThe implementation of these regulations will occur in phases over the next 18 months. Phase one begins immediately, with phase two starting in six months, and the final phase completing within 18 months. Companies should begin their compliance efforts now to avoid last-minute rushes.\n\nHow We Can Help\nAt Sterling & Associates, we specialize in helping businesses navigate complex regulatory changes. Our corporate law team can assist you in:\n- Conducting a compliance audit\n- Developing governance policies\n- Training board members\n- Implementing necessary systems and processes\n\nDon't wait until the deadline approaches. Contact us today to schedule a consultation and ensure your business is fully compliant with the new regulations."
+      },
+      {
+        "id": 2,
+        "date": "December 10, 2025",
+        "title": "Navigating Child Custody Arrangements: A Comprehensive Guide for Parents",
+        "excerpt": "Understanding your rights and responsibilities in child custody matters is crucial.",
+        "category": "Family Law",
+        "readingTime": 10,
+        "author": "James Chen",
+        "authorTitle": "Family Law Specialist",
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=600&fit=crop",
+        "content": "Child custody matters are among the most emotionally challenging legal issues families face. Whether you're going through a divorce, separation, or establishing custody arrangements, understanding your rights and responsibilities is essential. This guide will help you navigate the process with confidence.\n\nTypes of Custody Arrangements\nThere are several types of custody arrangements that courts may order:\n\n1. Sole Custody: One parent has primary physical and legal custody of the child. The other parent may have visitation rights.\n\n2. Joint Custody: Both parents share physical and/or legal custody. This can be equal or unequal depending on the circumstances.\n\n3. Shared Custody: Parents alternate custody on a regular schedule, often weekly or monthly.\n\n4. Third-Party Custody: In some cases, a grandparent or other relative may be granted custody.\n\nFactors Courts Consider\nWhen determining custody arrangements, courts consider many factors:\n- The child's best interests\n- Each parent's relationship with the child\n- The child's adjustment to home, school, and community\n- The mental and physical health of all parties\n- Each parent's ability to provide care\n- The child's preferences (depending on age)\n\nCreating a Custody Agreement\nA well-drafted custody agreement can prevent future disputes and provide clarity for all parties. Key elements include:\n- Physical custody schedule\n- Legal decision-making authority\n- Holiday and vacation arrangements\n- Communication protocols\n- Financial support arrangements\n- Modification procedures\n\nModifying Custody Orders\nCustody arrangements can be modified if there's a significant change in circumstances, such as:\n- A parent's relocation\n- Changes in the child's needs\n- Changes in either parent's circumstances\n- The child's preferences (as they age)\n\nOur Approach\nAt Sterling & Associates, we understand the emotional complexity of custody matters. Our family law team takes a compassionate yet strategic approach to help you achieve the best possible outcome for your family. We can help you:\n- Negotiate custody arrangements\n- Draft custody agreements\n- Represent you in court proceedings\n- Modify existing orders when necessary\n\nYour children deserve the best possible care and support. Let us help you navigate this challenging process."
+      },
+      {
+        "id": 3,
+        "date": "December 5, 2025",
+        "title": "Real Estate Market Trends and Legal Considerations for 2025",
+        "excerpt": "The real estate market continues to evolve with new legal requirements.",
+        "category": "Real Estate Law",
+        "readingTime": 7,
+        "author": "Emily Rodriguez",
+        "authorTitle": "Real Estate Law Expert",
+        "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop",
+        "content": "The real estate market is constantly evolving, and 2025 promises to bring significant changes that will affect both buyers and sellers. Understanding the legal landscape is crucial for making informed decisions in this dynamic market.\n\nMarket Overview for 2025\nThe real estate market in 2025 is characterized by several key trends:\n- Stabilizing interest rates\n- Increased focus on sustainable properties\n- Growing demand for remote work-friendly spaces\n- Shift toward mixed-use developments\n- Enhanced environmental regulations\n\nLegal Considerations for Buyers\nIf you're planning to purchase property in 2025, consider these legal aspects:\n\n1. Due Diligence: Conduct thorough inspections and title searches to identify any issues before purchase.\n\n2. Environmental Compliance: Ensure the property complies with current environmental regulations and sustainability standards.\n\n3. Zoning and Land Use: Verify that the property's current and intended use complies with local zoning laws.\n\n4. Financing and Mortgages: Understand all terms and conditions of your financing arrangement.\n\n5. Contingencies: Include appropriate contingencies in your purchase agreement to protect your interests.\n\nLegal Considerations for Sellers\nSellers also face important legal considerations:\n\n1. Disclosure Requirements: Provide complete and accurate disclosure of property conditions and defects.\n\n2. Title Issues: Ensure clear title and resolve any liens or encumbrances before sale.\n\n3. Environmental Assessments: Conduct environmental assessments if required by law or prudent practice.\n\n4. Contract Terms: Negotiate favorable terms while ensuring compliance with applicable laws.\n\n5. Tax Implications: Understand the tax consequences of your sale.\n\nCommercial Real Estate Trends\nCommercial real estate is experiencing unique challenges and opportunities:\n- Adaptive reuse of office spaces\n- Increased focus on health and safety features\n- Growing demand for flexible lease terms\n- Integration of smart building technology\n\nHow We Can Assist\nOur real estate law team at Sterling & Associates can help you navigate these complex issues:\n- Property transactions and closings\n- Title issues and disputes\n- Lease negotiations\n- Zoning and land use matters\n- Environmental compliance\n- Commercial real estate transactions\n\nWhether you're buying, selling, or leasing property, our experienced attorneys can guide you through the legal process and protect your interests."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Discuss Your Legal Needs?",
+    "description": "Get expert legal advice tailored to your situation. Schedule your complimentary consultation today and take the first step toward resolving your legal matters.",
+    "button": "Schedule Your Consultation",
+    "phone": "(555) 123-4567",
+    "email": "contact@sterling-law.com"
+  },
+  "footer": {
+    "tagline": "Trusted legal excellence with personalized service and proven results for over 25 years.",
+    "quicklinks": "Quick Links",
+    "contactinfo": "Contact Info",
+    "followus": "Follow Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "copyright": "© 2025 Sterling & Associates. All rights reserved."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Have a legal question? We're here to help. Contact us today to schedule your free consultation.",
+    "visitTitle": "Visit Our Office",
+    "visitDesc": "Conveniently located in the heart of the business district with easy access to public transportation and parking.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "address": "123 Legal Street",
+    "suite": "Suite 456",
+    "city": "City, State 12345"
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "description": "Our experienced attorneys are dedicated to providing exceptional legal services with a personal touch. Each team member brings unique expertise and a commitment to client success.",
+    "contact": "Contact",
+    "cta_title": "Ready to Work With Our Team?",
+    "cta_description": "Schedule a consultation with one of our experienced attorneys today and discover how we can help with your legal needs.",
+    "cta_button": "Book Consultation",
+    "members": [
+      {
+        "name": "Sarah Mitchell",
+        "title": "Senior Partner & Founder",
+        "specialty": "Corporate Law",
+        "bio": "With 25+ years of experience in corporate law, Sarah founded Sterling & Associates to provide comprehensive legal solutions with a personal touch."
+      },
+      {
+        "name": "James Chen",
+        "title": "Partner",
+        "specialty": "Family Law",
+        "bio": "James specializes in family law matters with a compassionate approach. He has successfully handled over 200 family cases with a 98% client satisfaction rate."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "title": "Senior Attorney",
+        "specialty": "Real Estate Law",
+        "bio": "Emily brings 15 years of real estate expertise, handling complex property transactions and disputes for both individuals and corporations."
+      },
+      {
+        "name": "Michael Thompson",
+        "title": "Attorney",
+        "specialty": "Intellectual Property",
+        "bio": "Michael specializes in protecting intellectual property rights, including patents, trademarks, and copyrights for innovative companies."
+      },
+      {
+        "name": "Jessica Lee",
+        "title": "Attorney",
+        "specialty": "Corporate Law",
+        "bio": "Jessica focuses on contract negotiation and corporate compliance, helping businesses navigate complex legal requirements."
+      },
+      {
+        "name": "David Martinez",
+        "title": "Attorney",
+        "specialty": "Family Law",
+        "bio": "David is dedicated to helping families through challenging legal situations with empathy and expert guidance."
+      }
+    ]
+  },
+  "admin": {
+    "manageTeam": "Manage Team",
+    "nameRequired": "Name and title are required",
+    "memberAdded": "Team member added",
+    "memberUpdated": "Member updated",
+    "memberDeleted": "Member deleted",
+    "fields": {
+      "name": "Name",
+      "title": "Title",
+      "career": "Career",
+      "specialty": "Specialty",
+      "image": "Image URL",
+      "bio": "Short bio"
+    },
+    "buttons": {
+      "add": "Add",
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "member": {
+    "notFound": "Member not found",
+    "backToTeam": "Back to Team"
+  }
+}
