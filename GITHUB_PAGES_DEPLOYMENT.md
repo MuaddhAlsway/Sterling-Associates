@@ -1,301 +1,208 @@
 # GitHub Pages Deployment Guide
 
-## 🚀 Deploy Paraflow Legal Website to GitHub Pages
-
-This guide explains how to deploy the frontend to GitHub Pages.
-
----
-
 ## Prerequisites
 
-- GitHub account
-- Git installed locally
-- Node.js (v18+) installed
-- npm installed
+Before deploying, ensure you have:
+1. ✅ GitHub account
+2. ✅ Git installed locally
+3. ✅ Repository created on GitHub
+4. ✅ Node.js and npm installed
 
----
+## Deployment Steps
 
-## Step 1: Create GitHub Repository
+### Step 1: Update package.json Homepage
 
-1. Go to [GitHub](https://github.com)
-2. Click "New repository"
-3. Name it: `paraflow-legal-website`
-4. Make it **Public** (required for GitHub Pages)
-5. Click "Create repository"
+Update the `homepage` field in `package.json` with your GitHub username:
 
----
+```json
+"homepage": "https://YOUR_USERNAME.github.io/paraflow-legal-website"
+```
 
-## Step 2: Initialize Git Locally
+Replace `YOUR_USERNAME` with your actual GitHub username.
+
+### Step 2: Initialize Git Repository (if not already done)
 
 ```bash
-# Navigate to project directory
-cd paraflow-legal-website
-
-# Initialize git
 git init
-
-# Add remote repository
-git remote add origin https://github.com/YOUR_USERNAME/paraflow-legal-website.git
-
-# Rename branch to main (if needed)
-git branch -M main
-
-# Add all files
 git add .
-
-# Create initial commit
 git commit -m "Initial commit: Paraflow Legal Website"
+```
 
-# Push to GitHub
+### Step 3: Add Remote Repository
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/paraflow-legal-website.git
+git branch -M main
 git push -u origin main
 ```
 
----
-
-## Step 3: Update Configuration
-
-### Update package.json
-Replace `yourusername` with your actual GitHub username:
-
-```json
-"homepage": "https://yourusername.github.io/paraflow-legal-website"
-```
-
-### Verify vite.config.js
-Should have:
-```javascript
-base: '/paraflow-legal-website/',
-```
-
----
-
-## Step 4: Deploy Options
-
-### Option A: Automatic Deployment (Recommended)
-
-The GitHub Actions workflow will automatically deploy on every push to main.
-
-1. Workflow file is already created at `.github/workflows/deploy.yml`
-2. Push code to main branch
-3. GitHub Actions will automatically build and deploy
-4. Check "Actions" tab in your repository to see deployment status
-
-### Option B: Manual Deployment
+### Step 4: Deploy to GitHub Pages
 
 ```bash
-# Install gh-pages if not already installed
-npm install --save-dev gh-pages
+npm run deploy
+```
 
-# Build and deploy
+This command will:
+1. Build the project (`npm run build`)
+2. Deploy the `dist` folder to GitHub Pages using `gh-pages`
+
+### Step 5: Configure GitHub Pages Settings
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Pages**
+3. Under "Build and deployment":
+   - Source: Select "Deploy from a branch"
+   - Branch: Select `gh-pages` and `/root` folder
+4. Click **Save**
+
+### Step 6: Access Your Website
+
+Your website will be available at:
+```
+https://YOUR_USERNAME.github.io/paraflow-legal-website
+```
+
+---
+
+## Important Notes
+
+### API Configuration
+
+Since the backend is not deployed to GitHub Pages, you need to:
+
+1. **Option A: Use a deployed backend**
+   - Deploy your Express.js backend to Heroku, Railway, or similar
+   - Update `VITE_API_URL` in your environment
+
+2. **Option B: Use fallback data**
+   - The app has fallback translations and data
+   - Some features (admin, forms) won't work without backend
+   - This is suitable for a demo/portfolio site
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_URL=https://your-backend-url.com/api
+```
+
+Or leave it empty to use fallback data.
+
+### Base Path
+
+The `vite.config.js` is already configured with:
+```javascript
+base: '/paraflow-legal-website/'
+```
+
+This ensures all assets load correctly from the GitHub Pages subdirectory.
+
+---
+
+## Troubleshooting
+
+### Issue: 404 errors on page refresh
+
+**Solution**: GitHub Pages doesn't support client-side routing by default. You need to:
+
+1. Create a `public/404.html` file with the same content as `index.html`
+2. This redirects 404s back to the app for client-side routing
+
+### Issue: Assets not loading
+
+**Solution**: Ensure the `base` path in `vite.config.js` matches your repository name:
+```javascript
+base: '/paraflow-legal-website/'
+```
+
+### Issue: Styles not applying
+
+**Solution**: Clear browser cache and hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
+
+### Issue: gh-pages command not found
+
+**Solution**: Install gh-pages globally:
+```bash
+npm install -g gh-pages
+```
+
+---
+
+## Updating Your Site
+
+To update your site after making changes:
+
+```bash
+git add .
+git commit -m "Update: description of changes"
+git push origin main
 npm run deploy
 ```
 
 ---
 
-## Step 5: Enable GitHub Pages
+## Monitoring Deployment
 
 1. Go to your repository on GitHub
-2. Click "Settings"
-3. Scroll to "Pages" section
-4. Under "Source", select "Deploy from a branch"
-5. Select branch: `gh-pages`
-6. Select folder: `/ (root)`
-7. Click "Save"
+2. Click on **Actions** tab
+3. You'll see the deployment workflow
+4. Wait for it to complete (usually 1-2 minutes)
+5. Your site will be live at the GitHub Pages URL
 
 ---
 
-## Step 6: Verify Deployment
+## Rollback
 
-1. Wait 1-2 minutes for deployment to complete
-2. Visit: `https://yourusername.github.io/paraflow-legal-website`
-3. Your website should be live!
-
----
-
-## 📋 Deployment Checklist
-
-- ✅ GitHub repository created
-- ✅ Repository is public
-- ✅ Git initialized locally
-- ✅ Remote added
-- ✅ Initial commit pushed
-- ✅ package.json updated with homepage
-- ✅ vite.config.js has base path
-- ✅ GitHub Pages enabled
-- ✅ Deployment completed
-- ✅ Website accessible
-
----
-
-## 🔄 Updating Your Website
-
-After deployment, to update your website:
+If you need to rollback to a previous version:
 
 ```bash
-# Make changes to your code
-# ...
-
-# Commit changes
-git add .
-git commit -m "Update: Description of changes"
-
-# Push to GitHub
+git log --oneline
+git revert <commit-hash>
 git push origin main
-
-# GitHub Actions will automatically deploy
-# Or manually deploy with: npm run deploy
+npm run deploy
 ```
 
 ---
 
-## 🌐 Custom Domain (Optional)
+## Performance Tips
 
-To use a custom domain like `paraflow-legal.com`:
-
-1. Update `.github/workflows/deploy.yml`:
-   ```yaml
-   cname: paraflow-legal.com
-   ```
-
-2. Update `package.json`:
-   ```json
-   "homepage": "https://paraflow-legal.com"
-   ```
-
-3. Update `vite.config.js`:
-   ```javascript
-   base: '/',
-   ```
-
-4. Configure DNS records with your domain provider:
-   - Add CNAME record pointing to `yourusername.github.io`
-   - Or add A records pointing to GitHub Pages IP addresses
-
-5. In GitHub repository Settings > Pages:
-   - Add custom domain
-   - Enable "Enforce HTTPS"
+1. **Optimize images** - Use smaller image sizes
+2. **Enable caching** - GitHub Pages caches assets
+3. **Minify code** - Vite does this automatically in build
+4. **Use CDN** - Consider using a CDN for assets
 
 ---
 
-## 🐛 Troubleshooting
+## Security Notes
 
-### Website shows 404
-- Check that repository is public
-- Verify GitHub Pages is enabled
-- Check branch is set to `gh-pages`
-- Wait a few minutes for deployment
-
-### Styles not loading
-- Verify `base` path in vite.config.js
-- Check that CSS files are in dist folder
-- Clear browser cache
-
-### Images not showing
-- Verify image paths are relative
-- Check images are in public folder
-- Rebuild with `npm run build`
-
-### Deployment fails
-- Check GitHub Actions logs
-- Verify Node.js version is 18+
-- Check for build errors: `npm run build`
-- Ensure all dependencies are installed
+- ✅ GitHub Pages uses HTTPS by default
+- ✅ No sensitive data should be in the code
+- ✅ API keys should be in backend environment variables
+- ✅ Never commit `.env` files with secrets
 
 ---
 
-## 📊 Deployment Status
+## Next Steps
 
-Check deployment status:
-
-1. Go to your repository
-2. Click "Actions" tab
-3. View workflow runs
-4. Click on latest run to see details
-5. Check for any errors
-
----
-
-## 🔐 Environment Variables
-
-For production deployment, if you need environment variables:
-
-1. Go to repository Settings
-2. Click "Secrets and variables" > "Actions"
-3. Click "New repository secret"
-4. Add your secrets (e.g., API URLs)
-5. Use in workflow: `${{ secrets.YOUR_SECRET }}`
+1. Update `package.json` with your GitHub username
+2. Initialize Git repository
+3. Push to GitHub
+4. Run `npm run deploy`
+5. Configure GitHub Pages settings
+6. Access your live website
 
 ---
 
-## 📱 Testing Deployment
+## Support
 
-After deployment, test your website:
-
-- ✅ Visit homepage
-- ✅ Click navigation links
-- ✅ Switch language (EN/ع)
-- ✅ Fill contact form
-- ✅ Check responsive design
-- ✅ Test on mobile
-- ✅ Test on tablet
-- ✅ Test on desktop
+For more information:
+- [GitHub Pages Documentation](https://pages.github.com/)
+- [Vite Deployment Guide](https://vitejs.dev/guide/static-deploy.html#github-pages)
+- [gh-pages npm package](https://www.npmjs.com/package/gh-pages)
 
 ---
 
-## 🚀 Performance Tips
-
-1. **Optimize images** - Use compressed images
-2. **Minify CSS/JS** - Vite does this automatically
-3. **Enable caching** - GitHub Pages caches automatically
-4. **Use CDN** - Consider Cloudflare for faster delivery
-
----
-
-## 📞 Support
-
-### Common Issues
-
-**Q: How long does deployment take?**
-A: Usually 1-2 minutes. Check Actions tab for status.
-
-**Q: Can I use a custom domain?**
-A: Yes, see "Custom Domain" section above.
-
-**Q: How do I update the website?**
-A: Push changes to main branch. GitHub Actions will auto-deploy.
-
-**Q: Is there a cost?**
-A: No, GitHub Pages is free for public repositories.
-
-**Q: Can I use the backend API?**
-A: Yes, but you need to deploy backend separately (Heroku, Railway, etc.)
-
----
-
-## 🎉 Deployment Complete!
-
-Your Paraflow Legal Website is now live on GitHub Pages!
-
-### Next Steps
-
-1. **Share your website** - Send the URL to others
-2. **Monitor performance** - Check GitHub Actions for any issues
-3. **Update content** - Make changes and push to deploy
-4. **Deploy backend** - Set up backend API separately
-5. **Configure API URL** - Update frontend to use backend API
-
----
-
-## 📚 Additional Resources
-
-- [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [Vite Deployment Guide](https://vitejs.dev/guide/static-deploy.html)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-
----
-
-**Deployment Status: ✅ READY**
-
-**Website URL: https://yourusername.github.io/paraflow-legal-website**
+**Deployment Status: Ready to Deploy**
 
 **Last Updated: January 1, 2026**
